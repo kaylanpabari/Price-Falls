@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: deal-finder-backend
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: ITAD_API_KEY
+        sync: false
+      - key: APP_TOKEN
+        generateValue: true
+      - key: ALERT_INTERVAL_MIN
+        value: "60"
